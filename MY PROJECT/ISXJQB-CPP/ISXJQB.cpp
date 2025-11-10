@@ -68,6 +68,10 @@ void ISXJQB::Shutdown()
 {
     printf("\arISXJQB v%s Shutting down...", JQB_Version);
 
+    // Remove all patches and hooks before shutting down
+    PatchManager::RemoveAllPatches();
+    PatchManager::RemoveAllHooks();
+
     DisconnectServices();
     UnRegisterCommands();
     UnRegisterAliases();
@@ -81,12 +85,53 @@ void ISXJQB::Shutdown()
 void ISXJQB::RegisterExtension()
 {
     ConnectServices();
+
+    // Initialize systems
+    JQBAuth::Initialize();
+    PatchManager::Initialize();
+
+    // Load and verify authentication
+    printf("\\ay[ISXJQB] Loading authentication...");
+    if (JQBAuth::LoadAuthFile())
+    {
+        JQBAuth::VerifyLicense();
+    }
+    else
+    {
+        printf("\\ar[ISXJQB] No auth file found - creating sample");
+        JQBAuth::CreateSampleAuthFile();
+    }
+
+    // TODO: Add your game file hashes here for integrity verification
+    // Example:
+    // PatchManager::RegisterFileHash("C:\\Games\\EQ2\\eq2.exe", "expected_sha256_hash_here");
+
+    // TODO: Register your patches here
+    // Example:
+    // unsigned char origBytes[] = { 0x74, 0x05 }; // JZ instruction
+    // unsigned char patchBytes[] = { 0x90, 0x90 }; // NOP NOP
+    // PatchManager::RegisterPatch("DisableCheck", "Disables safety check",
+    //                            0x12345678, origBytes, sizeof(origBytes),
+    //                            patchBytes, sizeof(patchBytes), "Safety");
+
+    // TODO: Register your hooks here
+    // Example:
+    // PatchManager::RegisterHook("HookFunction", "Hooks target function",
+    //                           0x87654321, MyDetourFunc, OriginalFunc, "Hooks");
+
+    // Apply patches and install hooks
+    // PatchManager::ApplyAllPatches();
+    // PatchManager::InstallAllHooks();
+
     RegisterCommands();
     RegisterAliases();
     RegisterDataTypes();
     RegisterTopLevelObjects();
     RegisterServices();
     RegisterTriggers();
+
+    printf("\\ag[ISXJQB] Loaded: %d patches, %d hooks registered",
+           PatchManager::GetPatchCount(), PatchManager::GetHookCount());
 }
 
 void ISXJQB::ConnectServices()

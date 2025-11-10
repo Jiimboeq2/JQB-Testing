@@ -201,14 +201,14 @@ ISXJQB-CPP/
 1. Read `README.md` for detailed documentation
 2. Explore the example module in `include/JQBCore/`
 3. Review memory patching examples above
-4. Check out the ISXRI Template to see more complex modules
+4. Create your own custom modules as needed
 5. Add your own modules and patches!
 
 ## Getting Help
 
 - Review existing code in `ISXJQB.cpp`
 - Check PowerShell scripts in `ModuleScripts/`
-- Compare with `ISXRI Template` folder for reference
+- Review the included example modules
 - InnerSpace forums: https://www.lavishsoft.com/
 
 ## Remember

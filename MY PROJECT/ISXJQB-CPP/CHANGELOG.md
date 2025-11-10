@@ -3,7 +3,7 @@
 ## v1.0.0 - Initial Release
 
 ### Added
-- Clean C++ extension framework based on streamlined ISXRI Template
+- Clean C++ extension framework for JQuestBot
 - Derivative key encryption system for obfuscated key storage
 - Memory patching macros (EzDetour, EzModify, etc.)
 - PowerShell module build system
@@ -13,13 +13,13 @@
 - Module system with auto-generation from .dat files
 - Sample JQBCore module
 
-### Removed (from ISXRI Template)
-- 57+ quest/timeline modules (bloat)
+### Removed
+- 57+ bloated quest/timeline modules
 - Hardcoded absolute paths
 - Unnecessary complexity
 
 ### Changed
-- Renamed from ISXRI to ISXJQB
+- Clean, focused architecture for JQuestBot
 - Simplified project structure
 - Cleaner build output paths (bin/ instead of scattered)
 - Improved documentation

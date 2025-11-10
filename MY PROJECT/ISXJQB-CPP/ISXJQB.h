@@ -115,3 +115,6 @@ extern char JQB_Version[];
 #include "DataTypes.h"
 #include "TopLevelObjects.h"
 #include "Services.h"
+#include "Auth.h"
+#include "FileHashing.h"
+#include "PatchManager.h"

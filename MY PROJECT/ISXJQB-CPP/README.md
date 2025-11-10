@@ -205,7 +205,7 @@ Pre-initialized type pointers:
 
 ## Notes
 
-- This is a **significantly streamlined** version of ISXRI Template
+- This is a **significantly streamlined** C++ extension framework
 - No 57+ quest/timeline modules - start clean and add only what you need
 - Derivative key system provides obfuscation (not true security)
 - The module system auto-generates C++ headers from .dat files

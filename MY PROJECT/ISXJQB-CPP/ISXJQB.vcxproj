@@ -119,6 +119,9 @@
     <ClInclude Include="ISXJQB.h" />
     <ClInclude Include="ISXDK.h" />
     <ClInclude Include="KeyDerivation.h" />
+    <ClInclude Include="Auth.h" />
+    <ClInclude Include="FileHashing.h" />
+    <ClInclude Include="PatchManager.h" />
     <ClInclude Include="Commands.h" />
     <ClInclude Include="DataTypes.h" />
     <ClInclude Include="TopLevelObjects.h" />
