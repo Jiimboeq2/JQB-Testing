@@ -1,0 +1,6 @@
+string TearsofVeeshanTimeline[] = {
+	"Tears of Veeshan Timeline",
+	"Custom",
+	"Quest \"Tears of Veeshan: The Eternal Broodlands\"",
+	"0 0 0"
+};

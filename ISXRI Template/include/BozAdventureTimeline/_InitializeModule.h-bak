@@ -1,0 +1,79 @@
+#include <memory>
+#include "CommonDeclarations.h"
+#include "OneStepDistressingTechnique.h"
+#include "LavishScript.h"
+
+bool TLO_OneStepDistressingTechnique(int argc, char *argv[], LSTYPEVAR &dest);
+
+class TLOHandler : public ITLOHandler
+{
+public:
+	static std::shared_ptr<TLOHandler> Create()
+	{
+		std::shared_ptr<TLOHandler> instance(new TLOHandler(),
+														 [](TLOHandler *p)
+														 { delete p; });
+		TLOHandlerRegistry::RegisterHandler(instance);
+		return instance;
+	}
+
+	void RegisterTLOs(ISInterface *pISInterface) override
+	{
+		pISInterface->Printf("ISXRI: !!!!!!!!! GOOO !!!!!!!!!!!!!!!!!!!!!");
+		pISInterface->AddTopLevelObject("ONESTEPDISTRESSINGTECHNIQUE", TLO_OneStepDistressingTechnique);
+	}
+
+	void DeregisterTLOs(ISInterface *pISInterface) override
+	{
+		pISInterface->RemoveTopLevelObject("ONESTEPDISTRESSINGTECHNIQUE");
+	}
+
+private:
+	TLOHandler() = default;
+	~TLOHandler() override = default;
+};
+
+auto handlerInstance = TLOHandler::Create();
+
+
+bool TLO_OneStepDistressingTechnique(int argc, char *argv[], LSTYPEVAR &dest)
+{
+	return CommonTLOFunction(OneStepDistressingTechnique, argc, argv, dest);
+}
+
+
+// bool __cdecl TLO_OneStepDistressingTechnique(int argc, char *argv[], LSTYPEVAR &Dest)
+// {
+// 	int numberofelements = sizeof(OneStepDistressingTechnique) / sizeof(OneStepDistressingTechnique[0]);
+
+// 	if (argc > 1)
+// 	{
+// 		if (strcmp(argv[0], "3rtZdjv7") != 0)
+// 		{
+// 			return false;
+// 		}
+// 		int num = atoi(argv[1]);
+// 		if (*argv[1] == '#')
+// 		{
+// 			Dest.Int = numberofelements;
+// 			Dest.Type = pXIntType;
+// 			return true;
+// 		}
+// 		else if (num < numberofelements)
+// 		{
+// 			Dest.ConstCharPtr = OneStepDistressingTechnique[num].c_str();
+// 			Dest.Type = pXStringType;
+// 			return true;
+// 		}
+// 		else
+// 		{
+// 			printf("Array out of bounds");
+// 			return false;
+// 		}
+// 	}
+// 	else
+// 	{
+// 		printf("Usage: ${Variable[X]} or ${Variable[#]}, X=string value at element X in array, #=Number of elements in the array");
+// 	}
+// 	return false;
+// }

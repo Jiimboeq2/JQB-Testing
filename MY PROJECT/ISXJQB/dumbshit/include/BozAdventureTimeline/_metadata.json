@@ -1,0 +1,32 @@
+{
+    "Category": "Ballads of Zimara Adventure",
+    "Type": "Adventure Timeline",
+    "Ignore": [
+        {
+            "File": "ToAether.dat",
+            "UIElement": true
+        },
+        {
+            "File": "ToZimara.dat",
+            "UIElement": true
+        },
+        {
+            "File": "ZBRR.dat",
+            "UIElement": true
+        },
+        {
+            "File": "ZBSS.dat",
+            "UIElement": true
+        },
+        {
+            "File": "ZBV.dat",
+            "UIElement": true
+        }
+    ],
+    "PreferredOrder": [
+        "Ballads of Zimara Timeline",
+        "Splendor Sky Aerie Side Timeline",
+        "Zimara Breadth Side Timeline",
+        "Aether Wroughtlands Side Timeline"
+    ]
+}

@@ -1,0 +1,6 @@
+string ArtisanEpicTimeline[] = {
+	"Artisan Epic Timeline",
+	"Custom",
+	"ArtisanEpicTimeline",
+	"0 0 0"
+};

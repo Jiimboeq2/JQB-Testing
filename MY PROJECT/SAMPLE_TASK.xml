@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Sample Task File for JQuestBot -->
+<!-- This demonstrates waypoints and commands -->
+
+<Task Name="Sample Quest">
+    <!-- Walk to NPC location -->
+    <Waypoint X="100.5" Y="200.3" Z="50.1" />
+    <Waypoint X="105.2" Y="202.1" Z="51.0" />
+
+    <!-- Hail the quest giver when reaching waypoint 2 -->
+    <Command Name="HailActor" Params="ActorName=Guard Bob" WaypointIndex="2" />
+
+    <!-- Accept the quest -->
+    <Command Name="AcceptQuest" WaypointIndex="2" />
+
+    <!-- Walk to gathering location -->
+    <Waypoint X="150.0" Y="210.0" Z="52.0" />
+    <Waypoint X="200.5" Y="220.3" Z="55.1" />
+
+    <!-- Gather resources at waypoint 4 -->
+    <Command Name="Gather" Params="ResourceType=Ore" WaypointIndex="4" />
+
+    <!-- Walk to combat area -->
+    <Waypoint X="250.0" Y="230.0" Z="60.0" />
+
+    <!-- Attack mob at waypoint 5 -->
+    <Command Name="Attack" Params="TargetName=Goblin Scout" WaypointIndex="5" />
+
+    <!-- Return to quest giver -->
+    <Waypoint X="105.2" Y="202.1" Z="51.0" />
+
+    <!-- Turn in quest at final waypoint -->
+    <Command Name="CompleteQuest" WaypointIndex="6" />
+</Task>

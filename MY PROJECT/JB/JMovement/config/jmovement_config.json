@@ -1,0 +1,45 @@
+{
+  "version": "4.0.0",
+  "release_date": "2025.10.18",
+  "developer_mode": false,
+  "movement_precision": 3,
+  "default_camp_radius": 300,
+  "auto_target_scan_radius": 40,
+  "movement_settings": {
+    "move_behind": true,
+    "move_melee": true,
+    "move_to_area": true,
+    "grind_options": true,
+    "raid_options": true,
+    "ignore_move_to_attack_health_check": false
+  },
+  "ogre_integration": {
+    "enabled": true,
+    "relay_group": "all",
+    "default_joust_distance": 300,
+    "camp_spot_type": 2
+  },
+  "navigation": {
+    "flying_enabled": true,
+    "ground_enabled": true,
+    "precision_movement": true,
+    "auto_path_correction": true
+  },
+  "encounter_automation": {
+    "enabled": true,
+    "auto_setup_on_zone": true,
+    "monitor_afflictions": true,
+    "monitor_spawns": true
+  },
+  "ui_settings": {
+    "show_debug_messages": false,
+    "log_movement_events": true,
+    "display_navigation_info": false
+  },
+  "paths": {
+    "base_dir": "${LavishScript.HomeDirectory}/jcommon/JMovement/",
+    "zones_dir": "zones/",
+    "config_dir": "config/",
+    "saves_dir": "saves/"
+  }
+}

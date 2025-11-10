@@ -1,0 +1,31 @@
+{
+  "zone": "The Commonlands",
+  "saved": "08:38:03",
+  "totalActors": 4,
+  "actors": [
+    {
+      "name": "Unknown",
+      "type": "Unknown",
+      "id": 0,
+      "location": "L"
+    },
+    {
+      "name": "Unknown",
+      "type": "Unknown",
+      "id": 0,
+      "location": "L"
+    },
+    {
+      "name": "Unknown",
+      "type": "Unknown",
+      "id": 0,
+      "location": "L"
+    },
+    {
+      "name": "Unknown",
+      "type": "Unknown",
+      "id": 0,
+      "location": "L"
+    }
+  ]
+}
