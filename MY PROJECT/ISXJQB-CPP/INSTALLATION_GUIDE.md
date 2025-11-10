@@ -306,14 +306,14 @@ mkdir "C:\Program Files (x86)\InnerSpace\x64\Extensions\ISXDK35"
 
 ## Next Steps
 
-1. ✅ Generate encryption keys
-2. ✅ Build extension
-3. ✅ Install DLL
-4. ✅ Create auth file
-5. ✅ Load in EQ2
-6. ⏹️ Implement backend auth
-7. ⏹️ Add your patches/hooks
-8. ⏹️ Test in-game
+1. Generate encryption keys
+2. Build extension
+3. Install DLL
+4. Create auth file
+5. Load in EQ2
+6. Implement backend auth
+7. Add your patches/hooks
+8. Test in-game
 
 ---
 

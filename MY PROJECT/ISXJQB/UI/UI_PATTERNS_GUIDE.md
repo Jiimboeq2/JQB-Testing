@@ -545,8 +545,8 @@ Scripts/
 
 ## Next Steps for Improvements
 
-1. ✅ Fix path references (Scripts/JB → Scripts/Eq2JCommon)
-2. ✅ Update skin name (EQ2BJ → EQ2-Green)
+1. Fix path references (Scripts/JB → Scripts/Eq2JCommon)
+2. Update skin name (EQ2BJ → EQ2-Green)
 3. Add Templates to JBMain.xml for button consistency
 4. Implement OnRender for real-time status updates
 5. Add frame-based tab switching for better performance

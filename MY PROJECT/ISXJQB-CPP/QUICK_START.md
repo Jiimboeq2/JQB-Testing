@@ -218,4 +218,4 @@ ISXJQB-CPP/
 - **Back up your work regularly**
 - **Don't commit sensitive data to git**
 
-Happy coding! 🚀
+Happy coding! 
