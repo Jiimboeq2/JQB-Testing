@@ -1,0 +1,25 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ISXJQB", "ISXJQB.vcxproj", "{F8B3E892-4D1C-4B7A-9C3F-1E2A5D6B7C8D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8B3E892-4D1C-4B7A-9C3F-1E2A5D6B7C8D}.Release|Win32.ActiveCfg = Release|Win32
+		{F8B3E892-4D1C-4B7A-9C3F-1E2A5D6B7C8D}.Release|Win32.Build.0 = Release|Win32
+		{F8B3E892-4D1C-4B7A-9C3F-1E2A5D6B7C8D}.Release|x64.ActiveCfg = Release|x64
+		{F8B3E892-4D1C-4B7A-9C3F-1E2A5D6B7C8D}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B4F2A7C1-3D5E-4F8A-9B2C-1E4A6D8B9C0E}
+	EndGlobalSection
+EndGlobal

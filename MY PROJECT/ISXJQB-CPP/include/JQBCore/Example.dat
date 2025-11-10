@@ -1,0 +1,5 @@
+Example Data Array
+This is line 1 of example data
+This is line 2 of example data
+You can add any text data here
+It will be converted to a C++ string array
