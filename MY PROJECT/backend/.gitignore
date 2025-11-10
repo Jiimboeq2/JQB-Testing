@@ -1,0 +1,20 @@
+# Environment files with secrets
+.env
+.env.local
+.env.production
+
+# Database dumps
+*.sql.backup
+*.dump
+
+# Logs
+*.log
+logs/
+
+# PHP
+vendor/
+composer.lock
+
+# OS files
+.DS_Store
+Thumbs.db
