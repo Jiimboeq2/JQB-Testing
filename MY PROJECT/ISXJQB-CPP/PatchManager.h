@@ -393,9 +393,3 @@ public:
         return count;
     }
 };
-
-// Static member initialization
-std::vector<Patch> PatchManager::Patches;
-std::vector<Hook> PatchManager::Hooks;
-std::map<std::string, std::string> PatchManager::ExpectedFileHashes;
-bool PatchManager::IntegrityVerified = false;
