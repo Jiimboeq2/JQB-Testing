@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Waypoints>
-    <Waypoint X="-350.413544" Y="0.854701" Z="9.596169" />
-    <Waypoint X="-356.662842" Y="2.586552" Z="6.160868" />
-    <Command Type="ClickActor" Value="Portal to Ravenscale Repository" />
-    <Command Type="Wait" Value="5" />
-    <Command Type="Custom" Value="eq2execute apply_verb ${Actor[Query,Type=&quot;Special&quot;&amp;&amp; Name=&quot;Portal to Ravenscale Repository&quot;].ID} &quot;Enter the Portal&quot;" />
-    <Command Type="Wait" Value="20" />
-</Waypoints>
