@@ -2,6 +2,9 @@
 #include <vector>
 #include <string>
 #include <map>
+#include <windows.h>
+#include <ISXDK.h>
+#include <Services.h>
 #include "ISXJQB.h"
 #include "FileHashing.h"
 

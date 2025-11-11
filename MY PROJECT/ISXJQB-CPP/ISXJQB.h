@@ -1,6 +1,7 @@
 #pragma once
-#include <ISXDK.h>
 #include <windows.h>
+#include <ISXDK.h>
+#include <Services.h>
 #include "KeyDerivation.h"
 
 class ISXJQB : public ISXInterface
