@@ -1,7 +1,7 @@
-. "$PSScriptRoot/Get-Parent-Paths"
-. "$PSScriptRoot/Convert-DATFile-To-HeaderFile"
-. "$PSScriptRoot/Get-Relative-FilePath"
-. "$PSScriptRoot/Get-TimelineQuests"
+. "$PSScriptRoot/Get-Parent-Paths.ps1"
+. "$PSScriptRoot/Convert-DATFile-To-HeaderFile.ps1"
+. "$PSScriptRoot/Get-Relative-FilePath.ps1"
+. "$PSScriptRoot/Get-TimelineQuests.ps1"
 
 <#
 .SYNOPSIS

@@ -23,12 +23,20 @@ None. This function does not return any output, but it generates a new C++ heade
 This function assumes that the content of the .dat file is suitable for direct inclusion in a C++ string array and does not perform complex parsing or validation of the file content.
 #>
 function Convert-DATFile-ToHeaderFile {
-       
+
     param ($filePath, $modulePath)
 
-    $content = Get-Content $filePath
+    # Handle both FileInfo objects and string paths
+    $filePathString = if ($filePath -is [System.IO.FileInfo]) { $filePath.FullName } else { $filePath }
+
+    if (-not (Test-Path $filePathString)) {
+        Write-Warning "File not found: $filePathString"
+        return
+    }
+
+    $content = Get-Content $filePathString
     if ($content.Trim().Length -gt 0) {
-        $arrayName = [System.IO.Path]::GetFileNameWithoutExtension($filePath).Replace(" ", "")
+        $arrayName = [System.IO.Path]::GetFileNameWithoutExtension($filePathString).Replace(" ", "")
         $arrayData = "string ${arrayName}[] = {`r`n"
 
         foreach ($line in $content) {
