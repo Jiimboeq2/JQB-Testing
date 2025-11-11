@@ -1,102 +1,230 @@
-# ISXJQB - Ready to Build
+# Start Here - Build Your Extension
 
-Everything is set up and ready to compile.
+## The Simple Version
 
-## Quick Start - Just Run This
+You just need to run one PowerShell script. That's it.
 
 ```powershell
 cd "MY PROJECT/ISXJQB-CPP"
 .\BuildAll.ps1
 ```
 
-That's it. One script does everything:
-- Generates new encryption keys (if needed)
-- Updates modules
-- Builds the DLL
-- Shows you what to do next
+**Do you need to open Visual Studio?** Nope.
 
-## What You Have
+The script uses MSBuild directly (Visual Studio's compiler). You need Visual Studio **installed**, but you don't need to open it or click anything. The script handles everything.
 
-### C++ Extension (ISXJQB-CPP/)
-- Complete InnerSpace extension framework
-- Derivative key encryption system (multi-layer security)
-- XML-based authentication system
-- Modular patch management (organized, reversible)
-- Hook management system
-- File integrity verification (SHA-256/MD5)
-- LavishScript helper commands (`jqb ?`)
-- ISXDK 35 (all headers and x64 libraries)
+## What You Need Installed
 
-### Backend API (backend/)
-- PostgreSQL database schema
-- Three-tier permission system:
-  - **god**: Unlimited characters, all features, API access
-  - **oracle**: Multi-character (up to limit), premium features
-  - **acolyte**: Single character, basic features
-- PHP verification API with audit logging
-- License management (create, extend, deactivate)
-- Security documentation
+### Visual Studio 2022
 
-### Database Setup
-Your Neon PostgreSQL database:
+Download **Visual Studio 2022 Community** (it's free):
+https://visualstudio.microsoft.com/downloads/
+
+When installing, select:
+- "Desktop development with C++"
+
+That's the only workload you need. It installs:
+- MSVC compiler (v143 toolset)
+- Windows SDK
+- MSBuild
+
+**Any edition works:**
+- Community (free) - perfect
+- Professional - if you have it
+- Enterprise - if you're fancy
+- Build Tools - minimal version, also works
+
+### InnerSpace
+
+You probably already have this since you're making an extension for it.
+
+### EverQuest II
+
+Same deal - you're making an extension for it.
+
+## Build Steps (First Time)
+
+1. **Open PowerShell**
+   - Right-click Start menu
+   - Click "Windows PowerShell" or "Terminal"
+
+2. **Navigate to the project**
+   ```powershell
+   cd "C:\path\to\JQB-Testing\MY PROJECT\ISXJQB-CPP"
+   ```
+
+3. **Run the build script**
+   ```powershell
+   .\BuildAll.ps1
+   ```
+
+That's it. The script does:
+- Checks if you have default encryption keys
+- Generates new random keys if needed
+- Updates module includes
+- Finds MSBuild on your system
+- Compiles the C++ code
+- Outputs ISXJQB.dll
+
+Takes about 30 seconds on first build.
+
+## What The Script Does
+
 ```
-Host: ep-sweet-king-ah50tgzg.c-3.us-east-1.aws.neon.tech
-Database: neondb
-Region: us-east-1
-SSL: Required
+[1/4] Checking encryption keys...
+  Default keys detected - generating new keys...
+  Keys generated and updated in KeyDerivation.h
+
+[2/4] Updating modules...
+  (processes any .dat files in include/ folder)
+
+[3/4] Locating MSBuild...
+  Found: C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe
+
+[4/4] Building ISXJQB (x64 Release)...
+  (compiler output)
+
+========================================
+     BUILD SUCCESSFUL!
+========================================
+
+Output DLL:
+  Location: bin\x64\ISXJQB.dll
+  Size: 45.2 KB
+  Modified: 2025-11-11 3:45 PM
+
+========================================
+NEXT STEPS:
+========================================
+(tells you where to copy the DLL)
 ```
 
-## What to Do After Building
+## After Building
 
-1. **Install the DLL**:
-   ```
-   Copy: MY PROJECT\ISXJQB-CPP\bin\x64\ISXJQB.dll
-   To: C:\Program Files (x86)\InnerSpace\x64\Extensions\ISXDK35\ISXJQB.dll
-   ```
+### 1. Copy the DLL
 
-2. **Create auth file**:
-   ```
-   Location: C:\Program Files (x86)\InnerSpace\x64\Extensions\isxjqb_auth.xml
+From:
+```
+MY PROJECT\ISXJQB-CPP\bin\x64\ISXJQB.dll
+```
 
-   Content:
-   <?xml version="1.0" encoding="UTF-8"?>
-   <isxjqb_auth>
-       <email>your-email@example.com</email>
-       <license>66B0-00B8-558A-5B6A-7B91-246E-9E98-B5DC</license>
-   </isxjqb_auth>
-   ```
+To:
+```
+C:\Program Files (x86)\InnerSpace\x64\Extensions\ISXDK35\ISXJQB.dll
+```
 
-3. **Load in game** (EverQuest II via InnerSpace):
-   ```
-   ext isxjqb
-   ```
+If that folder doesn't exist, create it.
 
-4. **Test it**:
-   ```
-   jqb ?
-   jqb status
-   ```
+### 2. Create Auth File
+
+Location:
+```
+C:\Program Files (x86)\InnerSpace\x64\Extensions\isxjqb_auth.xml
+```
+
+Contents:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<isxjqb_auth>
+    <email>your-email@example.com</email>
+    <license>66B0-00B8-558A-5B6A-7B91-246E-9E98-B5DC</license>
+</isxjqb_auth>
+```
+
+Use your actual email and license key. Format for the key is:
+```
+XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX
+```
+
+### 3. Load It
+
+Open EverQuest II via InnerSpace, then in the console:
+```
+ext isxjqb
+```
+
+You should see:
+```
+ISXJQB v1.0.0 Loading...
+[ISXJQB] Connected to Memory Service
+[ISXJQB] Connected to Pulse Service
+[ISXJQB] Loading authentication...
+[ISXJQB Auth] Loaded credentials for: your-email@example.com
+[ISXJQB] TODO: Backend verification not implemented yet
+[ISXJQB] License verified successfully!
+[ISXJQB] Loaded: 0 patches, 0 hooks registered
+ISXJQB v1.0.0 Loaded Successfully!
+```
+
+### 4. Test It
+
+```
+jqb ?
+```
+
+Shows all available commands.
+
+```
+jqb status
+```
+
+Shows extension status.
 
 ## Adding Your Game Patches
 
-Edit `ISXJQB-CPP/ISXJQB.cpp` in the `RegisterExtension()` function:
+Now that it builds, you probably want to add actual patches for EQ2.
 
+Edit this file:
+```
+MY PROJECT\ISXJQB-CPP\ISXJQB.cpp
+```
+
+Find the `RegisterExtension()` function (around line 85).
+
+Add your patches:
 ```cpp
-// Register your patches
-unsigned char origBytes[] = { 0x74, 0x05 };  // Original bytes
-unsigned char patchBytes[] = { 0x90, 0x90 }; // Your patch
+void ISXJQB::RegisterExtension()
+{
+    ConnectServices();
 
-PatchManager::RegisterPatch(
-    "MyPatch",                        // Name
-    "Description of what this does",  // Description
-    0x00401234,                       // Address in memory
-    origBytes, sizeof(origBytes),
-    patchBytes, sizeof(patchBytes),
-    "Category"                        // Category (for grouping)
-);
+    // Initialize systems
+    JQBAuth::Initialize();
+    PatchManager::Initialize();
 
-// Apply it
-PatchManager::ApplyPatch("MyPatch");
+    // YOUR PATCHES GO HERE
+
+    // Example: Remove a jump instruction
+    unsigned char origBytes[] = { 0x74, 0x05 };  // JZ +5
+    unsigned char nopBytes[] = { 0x90, 0x90 };   // NOP NOP
+
+    PatchManager::RegisterPatch(
+        "RemoveCheck",
+        "Removes safety check at 0x401234",
+        0x00401234,                    // <- YOUR ADDRESS HERE
+        origBytes, sizeof(origBytes),
+        nopBytes, sizeof(nopBytes),
+        "Safety"
+    );
+
+    // Apply it
+    PatchManager::ApplyPatch("RemoveCheck");
+
+    // END YOUR PATCHES
+
+    // Load auth
+    if (JQBAuth::LoadAuthFile())
+        JQBAuth::VerifyLicense();
+    else
+        JQBAuth::CreateSampleAuthFile();
+
+    // Register InnerSpace stuff
+    RegisterCommands();
+    RegisterAliases();
+    RegisterDataTypes();
+    RegisterTopLevelObjects();
+    RegisterServices();
+    RegisterTriggers();
+}
 ```
 
 Then rebuild:
@@ -104,89 +232,103 @@ Then rebuild:
 .\BuildAll.ps1
 ```
 
-## Backend Setup (Optional - for production)
-
-1. **Initialize database**:
-   ```bash
-   psql "postgresql://neondb_owner:npg_Xedr6xVanI5h@ep-sweet-king-ah50tgzg.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require" < backend/database/schema.sql
-   ```
-
-2. **Deploy API**:
-   - Upload `backend/api/verify_license.php` to your web server
-   - Set environment variable: `DATABASE_URL=<your connection string>`
-   - Use HTTPS only
-
-3. **Integrate with C++**:
-   - Update `Auth.h` line 108 with actual HTTP requests
-   - Currently auth is in dev mode (always returns true)
-
-## File Structure
-
+Copy the new DLL to InnerSpace, reload:
 ```
-MY PROJECT/
-├── ISXJQB-CPP/              C++ extension source
-│   ├── BuildAll.ps1         ONE SCRIPT TO RUN
-│   ├── ISXJQB.h/cpp         Main extension
-│   ├── Auth.h               Authentication
-│   ├── PatchManager.h       Patch system
-│   ├── KeyDerivation.h      Encryption
-│   └── third-party/ISXDK/   InnerSpace SDK
-│
-├── ISXJQB/                  LavishScript files
-│   └── jqb_helper.iss       Helper commands
-│
-└── backend/                 License verification
-    ├── api/                 PHP API
-    ├── database/            PostgreSQL schema
-    └── README.md            Backend docs
+ext -unload isxjqb
+ext isxjqb
 ```
 
-## Key Features
+## Rebuilding After Changes
 
-**Security**:
-- Multi-layer key derivation (no plaintext keys)
-- XML auth with backend verification
-- Tier-based permissions
-- File integrity checking
-- Audit logging
+Anytime you change code, just:
+```powershell
+.\BuildAll.ps1
+```
 
-**Patch Management**:
-- Named patches with descriptions
-- Categories for organization
-- Apply/remove individual or all
-- Reversible (restore original bytes)
-- Status tracking
-
-**Development**:
-- Single build script
-- Auto-generates encryption keys
-- Module system for organization
-- Clean, documented code
-- x64 only (simplified)
+If you want to skip key generation (use existing keys):
+```powershell
+.\BuildAll.ps1 -SkipKeyGeneration
+```
 
 ## Troubleshooting
 
-**Build fails**:
-- Install Visual Studio 2022 Community (free)
-- Or install Build Tools for Visual Studio 2022
+**"MSBuild not found"**
 
-**Can't find InnerSpace folder**:
-- Adjust paths in the output instructions
-- InnerSpace must be installed first
+You don't have Visual Studio 2022 installed, or you didn't install the C++ workload.
 
-**Extension won't load**:
-- Check InnerSpace console for errors
-- Verify ISXDK version matches (35)
-- Make sure using x64 InnerSpace
+Fix:
+1. Open Visual Studio Installer
+2. Click "Modify" on Visual Studio 2022
+3. Select "Desktop development with C++"
+4. Click "Modify" to install
 
-## Need Help?
+**"Access denied" or file locked**
 
-Check these files:
-- `ISXJQB-CPP/README.md` - Detailed C++ docs
-- `ISXJQB-CPP/INSTALLATION_GUIDE.md` - Installation details
-- `backend/README.md` - Backend API docs
-- `backend/SECURITY.md` - Security best practices
+InnerSpace is using the DLL.
 
-## That's It
+Fix:
+1. Close InnerSpace completely
+2. Run `.\BuildAll.ps1`
+3. Copy new DLL
+4. Restart InnerSpace
 
-Run `BuildAll.ps1` and you're ready to go.
+**Extension won't load**
+
+Check InnerSpace console (the text output window). It will tell you what's wrong.
+
+Common issues:
+- Wrong folder (needs to be in ISXDK35 folder)
+- Using 32-bit InnerSpace (extension is x64 only)
+- Missing ISXDK version (needs ISXDK 35)
+
+**Build fails with errors**
+
+Read the error message. Usually it's:
+- Missing semicolon
+- Typo in variable name
+- Wrong memory address format
+
+Fix the error in the .cpp file and rebuild.
+
+## Next Steps
+
+Once you've got it building and loading:
+
+1. **Find memory addresses** in EQ2
+   - Use Cheat Engine or similar
+   - Find what you want to patch/hook
+
+2. **Add patches** in ISXJQB.cpp
+   - Register them with PatchManager
+   - Test one at a time
+
+3. **Add hooks** for function detouring
+   - Same process as patches
+   - Use PatchManager::RegisterHook()
+
+4. **Test everything** carefully
+   - Make backups before testing
+   - Test in safe environments first
+
+## Documentation
+
+More detailed info:
+- `README.md` - Overview and features
+- `ISXJQB-CPP/INSTALLATION_GUIDE.md` - Install details
+- `ISXJQB-CPP/QUICK_START.md` - Code examples
+- `backend/README.md` - Backend setup (optional)
+
+## Summary
+
+Run this:
+```powershell
+.\BuildAll.ps1
+```
+
+Copy DLL to InnerSpace.
+
+Create auth XML file.
+
+Load with `ext isxjqb`.
+
+That's it. You're done.
