@@ -1,7 +1,6 @@
 #pragma once
 #include <windows.h>
 #include <ISXDK.h>
-#include <Services.h>
 #include "KeyDerivation.h"
 
 class ISXJQB : public ISXInterface
@@ -109,13 +108,10 @@ extern LSType *pBoolPtrType;
 extern LSType *pFloatPtrType;
 extern LSType *pBytePtrType;
 
-extern char JQB_Version[];
-
-// Include component headers
+// Include additional components
+#include "Auth.h"
+#include "PatchManager.h"
 #include "Commands.h"
 #include "DataTypes.h"
 #include "TopLevelObjects.h"
 #include "Services.h"
-#include "Auth.h"
-#include "FileHashing.h"
-#include "PatchManager.h"

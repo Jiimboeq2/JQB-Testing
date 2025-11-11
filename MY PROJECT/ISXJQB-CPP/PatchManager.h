@@ -4,9 +4,22 @@
 #include <map>
 #include <windows.h>
 #include <ISXDK.h>
-#include <Services.h>
-#include "ISXJQB.h"
 #include "FileHashing.h"
+
+// Forward declarations - avoid circular include with ISXJQB.h
+// These are defined in ISXJQB.h but we need them declared here
+class ISXJQB;
+extern ISInterface *pISInterface;
+extern HISXSERVICE hMemoryService;
+extern ISXJQB *pExtension;
+
+// Printf macro (also defined in ISXJQB.h, but safe to duplicate)
+#ifndef printf
+#define printf pISInterface->Printf
+#endif
+
+// Note: Macros like EzDetour, EzModify, etc. are defined in ISXJQB.h
+// This header is included by ISXJQB.h, so those macros are available when used from ISXJQB.cpp
 
 // Modular patching system for ISXJQB
 // Keeps patches organized, reversible, and verifiable
