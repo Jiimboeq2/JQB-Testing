@@ -10,7 +10,7 @@ Your database connection string contains **sensitive credentials**. Follow these
 
 Create `.env` file (NOT committed to git):
 ```bash
-DATABASE_URL=postgresql://neondb_owner:npg_oRK2HX8tzqrW@ep-aged-surf-a5kyar58.us-east-2.aws.neon.tech/neondb?sslmode=require
+DATABASE_URL=postgresql://neondb_owner:npg_Xedr6xVanI5h@ep-sweet-king-ah50tgzg.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require
 ```
 
 Update `api/verify_license.php`:

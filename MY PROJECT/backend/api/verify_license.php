@@ -81,7 +81,7 @@ if (!preg_match('/^[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[
 // Database connection (USE ENVIRONMENT VARIABLES IN PRODUCTION!)
 try {
     // Get from environment variable (more secure)
-    $dbUrl = getenv('DATABASE_URL') ?: 'postgresql://neondb_owner:npg_oRK2HX8tzqrW@ep-aged-surf-a5kyar58.us-east-2.aws.neon.tech/neondb?sslmode=require';
+    $dbUrl = getenv('DATABASE_URL') ?: 'postgresql://neondb_owner:npg_Xedr6xVanI5h@ep-sweet-king-ah50tgzg.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require';
 
     $parts = parse_url($dbUrl);
     $host = $parts['host'];

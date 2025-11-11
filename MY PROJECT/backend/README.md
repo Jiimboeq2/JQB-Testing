@@ -18,7 +18,7 @@ Your PostgreSQL database is already provisioned at Neon.
 Connect to your database and run:
 
 ```bash
-psql "postgresql://neondb_owner:npg_oRK2HX8tzqrW@ep-aged-surf-a5kyar58.us-east-2.aws.neon.tech/neondb?sslmode=require" < database/schema.sql
+psql "postgresql://neondb_owner:npg_Xedr6xVanI5h@ep-sweet-king-ah50tgzg.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require" < database/schema.sql
 ```
 
 Or using a PostgreSQL client:
@@ -45,7 +45,7 @@ Upload `api/verify_license.php` to your web server.
 
 **Environment Variables** (production):
 ```bash
-export DATABASE_URL="postgresql://neondb_owner:npg_oRK2HX8tzqrW@ep-aged-surf-a5kyar58.us-east-2.aws.neon.tech/neondb?sslmode=require"
+export DATABASE_URL="postgresql://neondb_owner:npg_Xedr6xVanI5h@ep-sweet-king-ah50tgzg.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require"
 ```
 
 ## API Endpoint
