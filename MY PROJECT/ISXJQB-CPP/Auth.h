@@ -198,9 +198,3 @@ public:
         }
     }
 };
-
-// Static member initialization
-std::string JQBAuth::PayPalEmail = "";
-std::string JQBAuth::LicenseKey = "";
-bool JQBAuth::IsAuthenticated = false;
-std::string JQBAuth::AuthFilePath = "";

@@ -26,6 +26,38 @@ LSType *pBytePtrType = nullptr;
 
 char JQB_Version[] = "1.0.0";
 
+// ==================== Static Member Definitions ====================
+// These must be defined in exactly ONE .cpp file to avoid linker errors
+
+// JQBAuth static members
+std::string JQBAuth::PayPalEmail = "";
+std::string JQBAuth::LicenseKey = "";
+bool JQBAuth::IsAuthenticated = false;
+std::string JQBAuth::AuthFilePath = "";
+
+// KeyDerivation static members
+const unsigned char KeyDerivation::KEY_PART1[] = {
+    0x4A, 0x51, 0x42, 0x2D, 0x53, 0x65, 0x63, 0x72,  // "JQB-Secr"
+    0x65, 0x74, 0x2D, 0x50, 0x61, 0x72, 0x74, 0x31   // "et-Part1"
+};
+
+const unsigned char KeyDerivation::KEY_PART2[] = {
+    0x58, 0x4F, 0x52, 0x2D, 0x4B, 0x65, 0x79, 0x2D,  // "XOR-Key-"
+    0x50, 0x61, 0x72, 0x74, 0x2D, 0x54, 0x77, 0x6F   // "Part-Two"
+};
+
+const unsigned char KeyDerivation::XOR_SALT[] = {
+    0x3C, 0x1E, 0x30, 0x02, 0x37, 0x00, 0x57, 0x5D,
+    0x05, 0x15, 0x1D, 0x24, 0x4C, 0x26, 0x53, 0x4E
+};
+
+unsigned char KeyDerivation::SessionSalt[16] = {0};
+bool KeyDerivation::SaltInitialized = false;
+
+// PatchManager static members
+std::vector<Patch> PatchManager::Patches;
+std::vector<Hook> PatchManager::Hooks;
+
 ISXJQB::ISXJQB(void)
 {
     pExtension = this;
