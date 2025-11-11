@@ -3,11 +3,11 @@
 
 // Global interface and service handles
 ISInterface *pISInterface = nullptr;
-HISXSERVICE hPulseService = nullptr;
-HISXSERVICE hMemoryService = nullptr;
-HISXSERVICE hHTTPService = nullptr;
-HISXSERVICE hTriggerService = nullptr;
-HISXSERVICE hSystemService = nullptr;
+HISXSERVICE hPulseService = 0;
+HISXSERVICE hMemoryService = 0;
+HISXSERVICE hHTTPService = 0;
+HISXSERVICE hTriggerService = 0;
+HISXSERVICE hSystemService = 0;
 
 ISXJQB *pExtension = nullptr;
 
@@ -137,11 +137,11 @@ void ISXJQB::RegisterExtension()
 void ISXJQB::ConnectServices()
 {
     // Connect to InnerSpace services
-    hMemoryService = pISInterface->ConnectToService(pExtension, "Memory");
-    hPulseService = pISInterface->ConnectToService(pExtension, "Pulse");
-    hHTTPService = pISInterface->ConnectToService(pExtension, "HTTP");
-    hTriggerService = pISInterface->ConnectToService(pExtension, "Triggers");
-    hSystemService = pISInterface->ConnectToService(pExtension, "System");
+    hMemoryService = pISInterface->ConnectService(pExtension, "Memory", 0);
+    hPulseService = pISInterface->ConnectService(pExtension, "Pulse", 0);
+    hHTTPService = pISInterface->ConnectService(pExtension, "HTTP", 0);
+    hTriggerService = pISInterface->ConnectService(pExtension, "Triggers", 0);
+    hSystemService = pISInterface->ConnectService(pExtension, "System", 0);
 
     if (hMemoryService)
         printf("\ag[ISXJQB] Connected to Memory Service");
@@ -159,28 +159,28 @@ void ISXJQB::DisconnectServices()
 {
     if (hMemoryService)
     {
-        pISInterface->DisconnectFromService(pExtension, hMemoryService);
-        hMemoryService = nullptr;
+        pISInterface->DisconnectService(pExtension, hMemoryService);
+        hMemoryService = 0;
     }
     if (hPulseService)
     {
-        pISInterface->DisconnectFromService(pExtension, hPulseService);
-        hPulseService = nullptr;
+        pISInterface->DisconnectService(pExtension, hPulseService);
+        hPulseService = 0;
     }
     if (hHTTPService)
     {
-        pISInterface->DisconnectFromService(pExtension, hHTTPService);
-        hHTTPService = nullptr;
+        pISInterface->DisconnectService(pExtension, hHTTPService);
+        hHTTPService = 0;
     }
     if (hTriggerService)
     {
-        pISInterface->DisconnectFromService(pExtension, hTriggerService);
-        hTriggerService = nullptr;
+        pISInterface->DisconnectService(pExtension, hTriggerService);
+        hTriggerService = 0;
     }
     if (hSystemService)
     {
-        pISInterface->DisconnectFromService(pExtension, hSystemService);
-        hSystemService = nullptr;
+        pISInterface->DisconnectService(pExtension, hSystemService);
+        hSystemService = 0;
     }
 }
 

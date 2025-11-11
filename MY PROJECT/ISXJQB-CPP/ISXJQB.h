@@ -43,23 +43,23 @@ extern ISXJQB *pExtension;
 
 // Memory Patching Macros - Easy detour/hook functions
 #define EzDetour(Address, Detour, Trampoline) \
-    IS_Detour(pExtension, pISInterface, hMemoryService, (unsigned int)Address, Detour, Trampoline)
+    IS_Detour(pExtension, pISInterface, hMemoryService, (UINT_PTR)Address, (UINT_PTR)Detour, (UINT_PTR)Trampoline, -1)
 
 #define EzUnDetour(Address) \
-    IS_UnDetour(pExtension, pISInterface, hMemoryService, (unsigned int)Address)
+    IS_UnDetour(pExtension, pISInterface, hMemoryService, (UINT_PTR)Address)
 
 #define EzDetourAPI(_Detour_, _DLLName_, _FunctionName_, _FunctionOrdinal_) \
-    IS_DetourAPI(pExtension, pISInterface, hMemoryService, _Detour_, _DLLName_, _FunctionName_, _FunctionOrdinal_)
+    IS_DetourAPI(pExtension, pISInterface, hMemoryService, (UINT_PTR)_Detour_, (UINT_PTR)_DLLName_, (UINT_PTR)_FunctionName_, (UINT_PTR)_FunctionOrdinal_, -1)
 
 #define EzUnDetourAPI(Address) \
-    IS_UnDetourAPI(pExtension, pISInterface, hMemoryService, (unsigned int)Address)
+    IS_UnDetourAPI(pExtension, pISInterface, hMemoryService, (UINT_PTR)Address)
 
 // Memory modification macros
 #define EzModify(Address, NewData, Length, Reverse) \
-    Memory_Modify(pExtension, pISInterface, hMemoryService, (unsigned int)Address, NewData, Length, Reverse)
+    Memory_Modify(pExtension, pISInterface, hMemoryService, (UINT_PTR)Address, NewData, Length, Reverse)
 
 #define EzUnModify(Address) \
-    Memory_UnModify(pExtension, pISInterface, hMemoryService, (unsigned int)Address)
+    Memory_UnModify(pExtension, pISInterface, hMemoryService, (UINT_PTR)Address)
 
 // HTTP request macro
 #define EzHttpRequest(_URL_, _pData_) \
