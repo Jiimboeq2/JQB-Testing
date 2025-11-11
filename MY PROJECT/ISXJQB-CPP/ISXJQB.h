@@ -9,6 +9,7 @@ public:
     ISXJQB(void);
     ~ISXJQB(void);
 
+    virtual unsigned int GetVersion();
     virtual bool Initialize(ISInterface *p_ISInterface);
     virtual void Shutdown();
 

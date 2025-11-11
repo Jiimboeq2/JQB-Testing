@@ -69,6 +69,11 @@ ISXJQB::~ISXJQB(void)
 {
 }
 
+unsigned int ISXJQB::GetVersion()
+{
+    return ISXDK_VERSION;
+}
+
 bool ISXJQB::Initialize(ISInterface *p_ISInterface)
 {
     pISInterface = p_ISInterface;
