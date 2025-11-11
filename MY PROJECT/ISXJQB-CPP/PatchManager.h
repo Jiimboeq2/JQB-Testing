@@ -191,19 +191,10 @@ public:
                     return true;
                 }
 
-                bool success = EzUnModify(patch.Address);
-
-                if (success)
-                {
-                    patch.IsApplied = false;
-                    printf("\\ag[ISXJQB PatchManager] Removed patch: %s", name.c_str());
-                    return true;
-                }
-                else
-                {
-                    printf("\\ar[ISXJQB PatchManager] Failed to remove patch: %s", name.c_str());
-                    return false;
-                }
+                EzUnModify(patch.Address);
+                patch.IsApplied = false;
+                printf("\\ag[ISXJQB PatchManager] Removed patch: %s", name.c_str());
+                return true;
             }
         }
 
@@ -257,19 +248,10 @@ public:
                     return true;
                 }
 
-                bool success = EzUnDetour(hook.Address);
-
-                if (success)
-                {
-                    hook.IsInstalled = false;
-                    printf("\\ag[ISXJQB PatchManager] Removed hook: %s", name.c_str());
-                    return true;
-                }
-                else
-                {
-                    printf("\\ar[ISXJQB PatchManager] Failed to remove hook: %s", name.c_str());
-                    return false;
-                }
+                EzUnDetour(hook.Address);
+                hook.IsInstalled = false;
+                printf("\\ag[ISXJQB PatchManager] Removed hook: %s", name.c_str());
+                return true;
             }
         }
 
